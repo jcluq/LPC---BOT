@@ -1,0 +1,82 @@
+Primero deberemos configurar el archivo configurar.py con las llaves de la cuenta de desarrollador
+, el tiempo entre publicaciones y el archivo de texto donde se guardaran los ID's
+# Si se trabajo con PLN comentar el lugar donde corre el 'for x in range(4):' y todo lo que este dentro de el
+# para que no corra.
+
+
+################Instrucciones para pasar el texto generativo al Twitter_bot:
+
+
+
+
+#En caso de haber usado el ejemplo de Tracery o 'generador_tracery.py':
+
+	# Importante: El archivo debe estar en la misma carpeta que Twitter_bot.py
+	# Al principio del programa utilizamos 'from'  luego el nombre del archivo
+	#'import' y el nombre de la funcion a usar
+
+ 		from generador_tracery import texto_final
+
+	# Descomentamos la linea 51
+
+		self.api.update_status(texto_final())
+
+#En caso de haber usado el ejemplo del Procesamiento de lenguaje natural o 'PLN-Generador.py':
+
+	# Cambiamos el nombre de 'PLN-Generador.py' a 'PLN_Generador.py'
+	# Importante: El archivo debe estar en la misma carpeta que Twitter_bot.py
+	# Al principio del programa utilizamos import y luego el nombre del archivo
+
+ 		import PLN_Generador as PLN
+
+	# Descomentamos la linea 48 y 49
+	# En la linea 61 pegamos el F-string que hallamos creado en el otro archivo
+	# a cada funcion le agregamos al principio 'PLN.' Por ejemplo si es  {adjetivo_plural()} pasar a ser {PLN.adjetivo_plural()}
+
+		texto_generativo_PLN = f'esto es un ejemplo para el PLN_Generador.py y un {adjetivo_plural()}'
+
+	#Ese F string se asigna a la variable 'texto_generativo_PLN' y se imprime en la linea 49:
+
+		self.api.update_status(texto_generativo_PLN)
+
+
+
+
+
+################## Instrucciones para pasar el texto generativo al Twitter_bot en las respuestas de Twitter:
+
+( Esto es para el archivo 'responder_tweets.py')
+
+
+
+
+#En caso de haber usado el ejemplo de Tracery o 'generador_tracery.py':
+
+	# Importante: El archivo debe estar en la misma carpeta que Twitter_bot.py
+	# Al principio del programa utilizamos 'from'  luego el nombre del archivo
+	#'import' y el nombre de la funcion a usar
+
+		from generador_tracery import texto_final
+
+
+	# Descomentamos la linea 64
+
+		respuesta = "@" + str(usuarix) + ' ' + texto_final()
+
+
+
+#En caso de haber usado el ejemplo del Procesamiento de lenguaje natural o 'PLN-Generador.py':
+
+	# Cambiamos el nombre de 'PLN-Generador.py' a 'PLN_Generador.py'
+	# Importante: El archivo debe estar en la misma carpeta que Twitter_bot.py
+	# Al principio del programa utilizamos import y luego el nombre del archivo
+
+		import PLN_Generador as PLN
+
+	# Descomentamos la linea 48 y 49
+	# En la linea 61 pegamos el F-string que hallamos creado en el otro archivo
+	# a cada funcion le agregamos al principio 'PLN.' Por ejemplo si es  {adjetivo_plural()} pasar a ser {PLN.adjetivo_plural()}
+
+		texto_generativo_PLN = f'esto es un ejemplo para el PLN_Generador.py y un {adjetivo_plural()}'
+
+	#Ese F string se asigna a la variable respuesta en la linea 49 y se imprime en la 69-72
